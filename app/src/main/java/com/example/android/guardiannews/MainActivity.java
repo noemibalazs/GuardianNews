@@ -33,8 +33,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     private TextView mEmptyTextView;
 
-    private EditText searchText;
-
     private ProgressBar mProgressBar;
 
     @Override
@@ -42,37 +40,14 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        searchText = findViewById(R.id.edit_text);
-
         ListView listView = findViewById(R.id.list_view);
         mEmptyTextView = findViewById(R.id.welcome_text);
         listView.setEmptyView(mEmptyTextView);
 
         mProgressBar = findViewById(R.id.progress_indicator);
-        ImageView searchButton = findViewById(R.id.search);
 
         mAdapter = new NewsAdapter(this, new ArrayList<News>());
         listView.setAdapter(mAdapter);
-
-
-        searchButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mAdapter.clear();
-                String searchNews = searchText.getText().toString();
-                tempLink= "https://content.guardianapis.com/search?" + "&show-fields=all" +"&show-tags=all";
-                tempLink = tempLink + searchNews;
-
-                ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
-                NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
-                if (searchNews!=null && !searchNews.isEmpty() && networkInfo.isConnected()){
-                    mEmptyTextView.setVisibility(view.GONE);
-                    mProgressBar.setVisibility(view.VISIBLE);
-                    LoaderManager loaderManager = getLoaderManager();
-                    loaderManager.restartLoader(NEWS_LOADER_ID, null, MainActivity.this);
-                }
-            }
-        });
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -102,17 +77,19 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
         String orderBy = sharedPreferences.getString(getString(R.string.settings_order_by_key),
                                                      getString(R.string.settings_order_by_default));
+        String search = sharedPreferences.getString(getString(R.string.search_key),
+                                                   getString(R.string.search_default_value));
 
-        String searchNews = searchText.getText().toString();
+
         tempLink= "https://content.guardianapis.com/search?" + "&show-fields=all" + "&show-tags=all";
-        tempLink = tempLink + searchNews;
+
 
         Uri baseUri = Uri.parse(tempLink);
         Uri.Builder builder= baseUri.buildUpon();
 
         builder.appendQueryParameter("tag", orderBy);
         builder.appendQueryParameter("format", "json");
-        builder.appendQueryParameter("q", searchNews);
+        builder.appendQueryParameter("q", search);
         builder.appendQueryParameter("api-key", "bbd8da9b-8352-4aca-bbf3-55625e6cb570");
 
         return new NewsLoader(this, builder.toString());
@@ -156,7 +133,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
 
-        if (key.equals(getString(R.string.settings_order_by_key))){
+        if (key.equals(getString(R.string.settings_order_by_key)) || key.equals(getString(R.string.search_key))){
             mAdapter.clear();
             mEmptyTextView.setVisibility(View.GONE);
             mProgressBar.setVisibility(View.VISIBLE);

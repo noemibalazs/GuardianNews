@@ -28,6 +28,9 @@ public class SettingsActivity extends AppCompatActivity {
 
             Preference orderBy = findPreference(getString(R.string.settings_order_by_key));
             bindPreferenceSummeryToValue(orderBy);
+
+            Preference search = findPreference(getString(R.string.search_key));
+            bindPreferenceSummeryToValue(search);
         }
 
         @Override

@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <EditTextPreference
+        android:title="@string/search"
+        android:defaultValue="@string/search_default_value"
+        android:key="@string/search_key"
+        android:inputType="textCapWords"
+        android:selectAllOnFocus="true"/>
+
     <ListPreference
         android:title="@string/setting_order_label"
         android:entries="@array/list_order_by_label"

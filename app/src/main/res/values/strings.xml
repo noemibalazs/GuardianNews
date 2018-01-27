@@ -1,8 +1,6 @@
 <resources>
     <string name="app_name">Guardian News</string>
 
-    <string name="search">Search for news</string>
-
     <string name="search_settings">Search Settings</string>
 
     <string name="title">Title</string>
@@ -20,4 +18,9 @@
     <string name="s_o_politics_value" translatable="false">politics/politics</string>
     <string name="s_o_business_value" translatable="false">business/business</string>
     <string name="s_o_sport_value" translatable="false">sport/sport</string>
+
+    <string name="search">Search for news</string>
+    <string name="search_default_value" translatable="false">Trump</string>
+    <string name="search_key" translatable="false">query</string>
+
 </resources>
