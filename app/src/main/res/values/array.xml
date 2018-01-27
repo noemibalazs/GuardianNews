@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+   <string-array name="list_order_by_label">
+      <item>@string/s_o_politics_label</item>
+      <item>@string/s_o_business_label</item>
+      <item>@string/s_o_sport_label</item>
+   </string-array>
+
+   <string-array name="list_order_by_entries_values">
+      <item>@string/s_o_politics_value</item>
+      <item>@string/s_o_business_value</item>
+      <item>@string/s_o_sport_value</item>
+   </string-array>
+
+</resources>

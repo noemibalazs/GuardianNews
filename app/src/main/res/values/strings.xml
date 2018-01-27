@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Guardian News</string>
+
+    <string name="search">Search for news</string>
+
+    <string name="search_settings">Search Settings</string>
+
+    <string name="title">Title</string>
+    <string name="text">Text</string>
+    <string name="date">2018-01-01</string>
+
+    <string name="setting_order_label">Order By</string>
+    <string name="settings_order_by_key" translatable="false">order_by</string>
+    <string name="settings_order_by_default" translatable="false">@string/s_o_business_value</string>
+
+    <string name="s_o_politics_label">Politics</string>
+    <string name="s_o_business_label">Business</string>
+    <string name="s_o_sport_label">Sport</string>
+
+    <string name="s_o_politics_value" translatable="false">politics/politics</string>
+    <string name="s_o_business_value" translatable="false">business/business</string>
+    <string name="s_o_sport_value" translatable="false">sport/sport</string>
+</resources>
