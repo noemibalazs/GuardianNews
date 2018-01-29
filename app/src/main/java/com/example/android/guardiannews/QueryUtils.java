@@ -2,7 +2,6 @@ package com.example.android.guardiannews;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.media.Image;
 import android.text.TextUtils;
 import android.util.Log;
 

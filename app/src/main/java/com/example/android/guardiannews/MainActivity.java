@@ -11,6 +11,7 @@ import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,6 +25,8 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<News>>, SharedPreferences.OnSharedPreferenceChangeListener   {
 
     private static String tempLink;
+
+    private static final String LOG_TAG = MainActivity.class.getSimpleName();
 
     private static final int NEWS_LOADER_ID = 1;
 
@@ -68,6 +71,17 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         }
     }
 
+    private boolean isChecked() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+        boolean isAvailable = false;
+        if (networkInfo != null && networkInfo.isConnected()) {
+            return true;
+        }
+        return isAvailable;
+    }
+
+
     @Override
     public Loader<List<News>> onCreateLoader(int i, Bundle bundle) {
 
@@ -101,7 +115,13 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         if (news!=null && !news.isEmpty()){
             mAdapter.addAll(news);
         } else {
-            mEmptyTextView.setText("No news found");
+            mEmptyTextView.setText("No news found!");
+        }
+        if (!isChecked()){
+            mProgressBar.setVisibility(View.GONE);
+            mEmptyTextView.setText("No internet connection!");
+        } else {
+            Log.v(LOG_TAG, "Network is available!");
         }
     }
 
