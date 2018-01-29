@@ -22,7 +22,7 @@
             <ImageView
                 android:id="@+id/news_image"
                 android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_height="120dp"
                 android:layout_margin="6dp"
                 android:src="@mipmap/news" />
 
@@ -30,7 +30,7 @@
                 android:id="@+id/layout"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:paddingTop="8dp"
+                android:paddingTop="2dp"
                 android:paddingLeft="8dp"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
@@ -38,8 +38,9 @@
                 <TextView
                     android:id="@+id/news_title"
                     android:layout_width="match_parent"
-                    android:layout_weight="1"
-                    android:layout_height="0dp"
+                    android:layout_weight="0"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="2dp"
                     android:text="@string/title"
                     android:maxLines="2"
                     android:textStyle="bold" />
@@ -47,19 +48,28 @@
                 <TextView
                     android:id="@+id/news_text"
                     android:layout_width="match_parent"
-                    android:layout_weight="1"
-                    android:layout_height="0dp"
-                    android:paddingTop="3dp"
-                    android:maxLines="4"
+                    android:layout_weight="0"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="2dp"
+                    android:maxLines="2"
                     android:text="@string/text" />
+
+                <TextView
+                    android:id="@+id/news_author"
+                    android:layout_width="match_parent"
+                    android:layout_weight="0"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="1dp"
+                    android:textStyle="bold"
+                    android:text="@string/author" />
 
                 <TextView
                     android:id="@+id/news_date"
                     android:text="@string/date"
                     android:layout_width="match_parent"
-                    android:paddingTop="3dp"
-                    android:layout_weight="1"
-                    android:layout_height="0dp" />
+                    android:paddingTop="1dp"
+                    android:layout_weight="0"
+                    android:layout_height="wrap_content" />
 
             </LinearLayout>
 

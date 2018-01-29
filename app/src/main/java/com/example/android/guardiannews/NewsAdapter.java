@@ -40,6 +40,9 @@ public class NewsAdapter extends ArrayAdapter<News> {
         String date = (newsNews.getDate()).substring(0, 10);
         textViewDate.setText(date);
 
+        TextView textViewAuthor = listItemView.findViewById(R.id.news_author);
+        textViewAuthor.setText(newsNews.getAuthor());
+
         ImageView imageViewImage = listItemView.findViewById(R.id.news_image);
         imageViewImage.setImageBitmap(newsNews.getThumbnail());
 

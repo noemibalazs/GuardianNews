@@ -159,6 +159,8 @@ public final class QueryUtils {
 
             for (int i=0; i<resultsArray.length(); i++){
 
+                String author = "";
+
                 JSONObject elementNews = resultsArray.getJSONObject(i);
 
                 String webUrl = elementNews.getString("webUrl");
@@ -167,11 +169,12 @@ public final class QueryUtils {
                 String title = fieldsNews.getString("headline");
                 String text = fieldsNews.getString("trailText");
                 String date = fieldsNews.getString("lastModified");
+                author = fieldsNews.getString("byline");
 
                 String image = fieldsNews.getString("thumbnail");
                 Bitmap imageBitmap = makeHttpRequest(image);
 
-                News newss = new News(title, text, date, imageBitmap, webUrl);
+                News newss = new News(title, text, date, imageBitmap, author,webUrl);
                 news.add(newss);
 
             }

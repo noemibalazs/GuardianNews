@@ -16,15 +16,18 @@ public class News {
 
     private Bitmap mThumbnail;
 
+    private String mAuthor;
+
     private String mUrl;
 
 
-    public News(String title, String text, String date, Bitmap thumbnail, String url){
+    public News(String title, String text, String date, Bitmap thumbnail, String author, String url){
 
         mTitle = title;
         mText = text;
         mDate = date;
         mThumbnail = thumbnail;
+        mAuthor= author;
         mUrl = url;
     }
 
@@ -44,6 +47,9 @@ public class News {
         return mUrl;
     }
 
+    public String getAuthor(){
+        return mAuthor;
+    }
     public Bitmap getThumbnail(){
         return mThumbnail;
     }
