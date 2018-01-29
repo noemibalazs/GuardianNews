@@ -14,9 +14,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.EditText;
-import android.widget.ImageView;
+import android.widget.AdapterView;;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -80,17 +78,16 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         String search = sharedPreferences.getString(getString(R.string.search_key),
                                                    getString(R.string.search_default_value));
 
-
         tempLink= "https://content.guardianapis.com/search?" + "&show-fields=all" + "&show-tags=all";
 
 
         Uri baseUri = Uri.parse(tempLink);
         Uri.Builder builder= baseUri.buildUpon();
 
-        builder.appendQueryParameter("tag", orderBy);
+        builder.appendQueryParameter("api-key", "bbd8da9b-8352-4aca-bbf3-55625e6cb570");
         builder.appendQueryParameter("format", "json");
         builder.appendQueryParameter("q", search);
-        builder.appendQueryParameter("api-key", "bbd8da9b-8352-4aca-bbf3-55625e6cb570");
+        builder.appendQueryParameter("tag", orderBy);
 
         return new NewsLoader(this, builder.toString());
     }
