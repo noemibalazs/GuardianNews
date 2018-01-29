@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             loaderManager.initLoader(NEWS_LOADER_ID, null, this);
         }  else {
             mProgressBar.setVisibility(View.GONE);
-            mEmptyTextView.setText("No internet connection");
+            mEmptyTextView.setText(getString(R.string.no_internet_connection));
         }
     }
 
@@ -115,13 +115,13 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         if (news!=null && !news.isEmpty()){
             mAdapter.addAll(news);
         } else {
-            mEmptyTextView.setText("No news found!");
+            mEmptyTextView.setText(getString(R.string.no_news_found));
         }
         if (!isChecked()){
             mProgressBar.setVisibility(View.GONE);
-            mEmptyTextView.setText("No internet connection!");
+            mEmptyTextView.setText(getString(R.string.no_internet_connection));
         } else {
-            Log.v(LOG_TAG, "Network is available!");
+            Log.v(LOG_TAG, getString(R.string.network_is_available));
         }
     }
 
