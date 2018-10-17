@@ -14,4 +14,6 @@ Learnings:
 
 Screenshot:
 
+![guardian news](https://user-images.githubusercontent.com/33603567/47101675-6e4d4680-d243-11e8-9133-7ddcb10c1624.jpg)
+
 
