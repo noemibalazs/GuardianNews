@@ -1,12 +1,17 @@
 # Guardian News
 
-This is stage 2 of Android Basic Nanodegree.
+This is stage 4 of Android Basic Nanodegree.
 
 Learnings:
 
-Design an implement a quiz application
-Write the code for the button which checks the user answers
-Display the quiz results in a Toast message
+1. Design an implement a news feed application
+2. Connecting to the Guardian API
+3.Parsing the JSON response
+4. Handling error cases gracefully
+5. Updating information regularly
+6. Using an AsyncTask
+7. Doing network operations independent of the Activity lifecycle
+
 Screenshot:
 
 
